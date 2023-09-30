@@ -422,6 +422,11 @@ public:
     for(int i=1; i<win_size; i++)
       for(int j=0; j<i; j++)
         Hess.block<6, 6>(6*i, 6*j) = Hess.block<6, 6>(6*j, 6*i).transpose();
+
+    // https://github.com/hku-mars/BALM/issues/48
+    for (int i=0; i<Cs.size();i++){
+      delete Cs[i];
+    } 
     
   }
 
